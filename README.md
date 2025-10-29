@@ -7,6 +7,11 @@ A full-stack web application that automatically classifies Gmail emails into cat
 
 ## 🎥 Demo
 
+**Live Demo:** [https://email-classifier.ijas.space/](https://email-classifier.ijas.space/)
+
+> **📋 Important:** This app is in Google OAuth "Testing" mode, limiting access to pre-approved test users only. The reviewer's email (`theindianappguy@gmail.com`) has been added as a test user. Public deployment requires Google verification (4-6 weeks). For full testing, please use the local setup instructions below.
+
+
 Demo link
 
 ## ✨ Features
