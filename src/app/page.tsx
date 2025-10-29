@@ -6,28 +6,26 @@ import Button from "@/components/ui/Button";
 export default async function HomePage() {
   const session = await auth();
 
-  // If user is already logged in, redirect to dashboard
   if (session) {
     redirect("/dashboard");
   }
 
-  // If not logged in, show landing page
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-md w-full">
         <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-          {/* Logo/Icon */}
-          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          {/* Logo/Icon - FIXED SIZE */}
+          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 flex-shrink-0">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-white flex-shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              strokeWidth={2}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
@@ -37,7 +35,7 @@ export default async function HomePage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
             Email Classifier
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 mb-8 text-base">
             Automatically classify your Gmail emails using AI-powered
             categorization
           </p>
@@ -56,7 +54,7 @@ export default async function HomePage() {
                   clipRule="evenodd"
                 />
               </svg>
-              <div>
+              <div className="flex-1">
                 <p className="text-sm font-medium text-gray-900">
                   Gmail Integration
                 </p>
@@ -78,7 +76,7 @@ export default async function HomePage() {
                   clipRule="evenodd"
                 />
               </svg>
-              <div>
+              <div className="flex-1">
                 <p className="text-sm font-medium text-gray-900">
                   AI Classification
                 </p>
@@ -100,7 +98,7 @@ export default async function HomePage() {
                   clipRule="evenodd"
                 />
               </svg>
-              <div>
+              <div className="flex-1">
                 <p className="text-sm font-medium text-gray-900">
                   Smart Categories
                 </p>
@@ -112,7 +110,7 @@ export default async function HomePage() {
           </div>
 
           {/* CTA Button */}
-          <Link href="/login" className="block">
+          <Link href="/login" className="block w-full">
             <Button className="w-full py-3 text-base">Get Started →</Button>
           </Link>
 

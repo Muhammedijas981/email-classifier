@@ -38,10 +38,28 @@ export function useEmails() {
     setError(null);
 
     try {
+      // Debug: Check what we're sending
+      console.log("=== FRONTEND DEBUG ===");
+      console.log(
+        "API Key:",
+        apiKey ? `${apiKey.substring(0, 10)}...` : "MISSING"
+      );
+      console.log("Emails count:", emails.length);
+      console.log(
+        "Request body:",
+        JSON.stringify({
+          emails: emails.map((e) => ({ id: e.id, subject: e.subject })),
+          apiKey: apiKey ? "PRESENT" : "MISSING",
+        })
+      );
+
       const response = await fetch("/api/emails/classify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ emails, apiKey }),
+        body: JSON.stringify({
+          emails: emails,
+          apiKey: apiKey,
+        }),
       });
 
       const data = await response.json();
