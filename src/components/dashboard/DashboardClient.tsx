@@ -63,11 +63,9 @@ export default function DashboardClient({ session }: DashboardClientProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <svg
@@ -90,8 +88,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
                 </h1>
               </div>
             </div>
-
-            {/* User Actions */}
             <div className="flex items-center gap-3">
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold">
@@ -130,13 +126,9 @@ export default function DashboardClient({ session }: DashboardClientProps) {
           </div>
         </div>
       </header>
-
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Controls Section */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
           <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
-            {/* Left: Email Count Input */}
             <div className="flex items-center gap-4">
               <div className="flex flex-col">
                 <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2">
@@ -157,8 +149,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
                 </div>
               </div>
             </div>
-
-            {/* Right: Action Buttons */}
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={handleFetchEmails}
@@ -202,8 +192,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
               </button>
             </div>
           </div>
-
-          {/* Error Display */}
           {error && (
             <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
               <svg
@@ -223,8 +211,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
               </div>
             </div>
           )}
-
-          {/* Stats */}
           {emails.length > 0 && (
             <div className="mt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
               <div className="bg-gray-50 rounded-lg p-3 text-center">
@@ -270,8 +256,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
             </div>
           )}
         </div>
-
-        {/* Email List or Empty State */}
         {emails.length > 0 ? (
           <EmailList emails={emails} />
         ) : (
@@ -319,8 +303,6 @@ export default function DashboardClient({ session }: DashboardClientProps) {
           </div>
         )}
       </main>
-
-      {/* API Key Modal */}
       <ApiKeyModal
         isOpen={showApiKeyModal}
         onClose={() => setShowApiKeyModal(false)}

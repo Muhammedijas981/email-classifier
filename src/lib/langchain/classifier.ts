@@ -8,25 +8,19 @@ export async function classifyEmail(
   apiKey: string
 ): Promise<EmailCategory> {
   try {
-    console.log("=== CLASSIFIER DEBUG ===");
-    console.log(
-      "API Key received:",
-      apiKey ? `${apiKey.substring(0, 15)}...` : "MISSING!"
-    );
-    console.log("Email subject:", email.subject);
 
     if (!apiKey || apiKey.trim() === "") {
-      console.error("❌ API key is empty or undefined!");
+      console.error("API key is empty or undefined!");
       return "General";
     }
 
     // Try different parameter names for the API key
     const model = new ChatOpenAI({
       modelName: "gpt-3.5-turbo",
-      apiKey: apiKey, // Changed from openAIApiKey to apiKey
+      apiKey: apiKey, 
       temperature: 0,
       configuration: {
-        apiKey: apiKey, // Also set it in configuration
+        apiKey: apiKey, 
       },
     });
 
@@ -38,10 +32,9 @@ export async function classifyEmail(
       body: email.body || email.snippet || "(No content)",
     });
 
-    console.log("📧 Classifying:", email.subject);
     const response = await model.invoke(formattedPrompt);
     const category = response.content.toString().trim();
-    console.log("✅ OpenAI returned:", category);
+
 
     // Validate category
     const validCategories: EmailCategory[] = [
@@ -56,11 +49,9 @@ export async function classifyEmail(
     if (validCategories.includes(category as EmailCategory)) {
       return category as EmailCategory;
     }
-
-    console.log("⚠️ Invalid category returned, using General");
     return "General";
   } catch (error) {
-    console.error("❌ Error classifying email:", error);
+    console.error("Error classifying email:", error);
     if (error instanceof Error) {
       console.error("Error message:", error.message);
       console.error("Error stack:", error.stack);
@@ -73,12 +64,9 @@ export async function classifyEmails(
   emails: Email[],
   apiKey: string
 ): Promise<Email[]> {
-  console.log("=== BATCH CLASSIFICATION START ===");
-  console.log("Total emails:", emails.length);
-  console.log("API Key status:", apiKey ? "Present" : "MISSING");
 
   if (!apiKey || apiKey.trim() === "") {
-    console.error("❌ No API key provided to classifyEmails!");
+    console.error(" No API key provided to classifyEmails!");
     // Return emails with General category
     return emails.map((email) => ({
       ...email,
@@ -92,7 +80,5 @@ export async function classifyEmails(
       return { ...email, category };
     })
   );
-
-  console.log("=== BATCH CLASSIFICATION COMPLETE ===");
   return classifiedEmails;
 }

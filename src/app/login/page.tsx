@@ -12,7 +12,6 @@ export default async function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
       <div className="w-full max-w-md px-6">
         <div className="bg-white rounded-2xl shadow-2xl p-10">
-          {/* Logo Area - FIXED SIZE */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 mb-4 flex-shrink-0">
               <svg
@@ -36,8 +35,6 @@ export default async function LoginPage() {
               Organize your inbox with AI-powered classification
             </p>
           </div>
-
-          {/* Sign In Button */}
           <form
             action={async () => {
               "use server";
@@ -71,8 +68,6 @@ export default async function LoginPage() {
               </span>
             </button>
           </form>
-
-          {/* Features */}
           <div className="mt-8 pt-8 border-t border-gray-200">
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm">

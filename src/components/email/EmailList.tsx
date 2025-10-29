@@ -30,7 +30,6 @@ export default function EmailList({ emails }: EmailListProps) {
 
   return (
     <div>
-      {/* Filters */}
       <div className="mb-6 flex flex-wrap gap-2">
         {categories.map((category) => (
           <button
@@ -49,8 +48,6 @@ export default function EmailList({ emails }: EmailListProps) {
           </button>
         ))}
       </div>
-
-      {/* Email List */}
       <div className="space-y-3">
         {filteredEmails.length === 0 ? (
           <div className="text-center py-12 text-gray-500">

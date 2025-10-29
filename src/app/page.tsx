@@ -14,7 +14,6 @@ export default async function HomePage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-md w-full">
         <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-          {/* Logo/Icon - FIXED SIZE */}
           <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 flex-shrink-0">
             <svg
               className="w-8 h-8 text-white flex-shrink-0"
@@ -30,8 +29,6 @@ export default async function HomePage() {
               />
             </svg>
           </div>
-
-          {/* Title */}
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
             Email Classifier
           </h1>
@@ -39,8 +36,6 @@ export default async function HomePage() {
             Automatically classify your Gmail emails using AI-powered
             categorization
           </p>
-
-          {/* Features */}
           <div className="space-y-3 mb-8 text-left">
             <div className="flex items-start gap-3">
               <svg
@@ -108,8 +103,6 @@ export default async function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* CTA Button */}
           <Link href="/login" className="block w-full">
             <Button className="w-full py-3 text-base">Get Started →</Button>
           </Link>
